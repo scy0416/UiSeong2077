@@ -1,0 +1,17 @@
+{
+  "player": {
+    "health": 5,
+    "sanity": 5,
+    "money": 10,
+    "location": "",
+    "mood": "",
+    "items": ""
+  },
+  "info": {
+    "causeOfDeath": "",
+    "choices": [
+      ""
+    ],
+    "cleared_scenario": ""
+  }
+}
