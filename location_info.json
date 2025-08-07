@@ -1,0 +1,147 @@
+{
+  "graph": {
+    "name": "장소 그래프",
+    "nodes": [
+      {
+        "id": 1,
+        "name": "고운사",
+        "거주 요괴": "",
+        "type": "요괴 거점"
+      },
+      {
+        "id": 2,
+        "name": "옥련사",
+        "거주 요괴": "",
+        "type": "요괴 거점"
+      },
+      {
+        "id": 3,
+        "name": "지장사",
+        "거주 요괴": "",
+        "type": "요괴 거즘"
+      },
+      {
+        "id": 4,
+        "name": "대곡사",
+        "거주 요괴": "",
+        "type": "요괴 거점"
+      },
+      {
+        "id": 5,
+        "name": "정수사",
+        "거주 요괴": "",
+        "type": "요괴 거점"
+      },
+      {
+        "id": 6,
+        "name": "만장사",
+        "거주 요괴": "",
+        "type": "요괴 거점"
+      },
+      {
+        "id": 7,
+        "name": "수정사",
+        "거주 요괴": "",
+        "type": "요괴 거점"
+      },
+      {
+        "id": 8,
+        "name": "단촌면",
+        "음식": "마늘닭",
+        "type": "식당"
+      },
+      {
+        "id": 9,
+        "name": "의성시장",
+        "음식": "닭발, 곰탕",
+        "type": "식당"
+      },
+      {
+        "id": 10,
+        "name": "금성면",
+        "음식": "손칼국수, 한우",
+        "type": "식당"
+      },
+      {
+        "id": 11,
+        "name": "마늘소먹거리타운",
+        "음식": "한우",
+        "type": "식당"
+      },
+      {
+        "id": 12,
+        "name": "안계시장",
+        "음식": "닭불고기, 추어탕",
+        "type": "식당"
+      },
+      {
+        "id": 13,
+        "name": "낙단보",
+        "음식": "민물매운탕",
+        "type": "식당"
+      }
+    ],
+    "edges": [
+      {
+        "source": 13,
+        "target": 5,
+        "distance_km": 6.0
+      },
+      {
+        "source": 10,
+        "target": 7,
+        "distance_km": 2.2
+      },
+      {
+        "source": 12,
+        "target": 6,
+        "distance_km": 8.4
+      },
+      {
+        "source": 10,
+        "target": 11,
+        "distance_km": 6.4
+      },
+      {
+        "source": 6,
+        "target": 2,
+        "distance_km": 6.0
+      },
+      {
+        "source": 12,
+        "target": 3,
+        "distance_km": 9.3
+      },
+      {
+        "source": 9,
+        "target": 11,
+        "distance_km": 6.7
+      },
+      {
+        "source": 9,
+        "target": 10,
+        "distance_km": 10.2
+      },
+      {
+        "source": 8,
+        "target": 2,
+        "distance_km": 11.0
+      },
+      {
+        "source": 1,
+        "target": 8,
+        "distance_km": 7.9
+      },
+      {
+        "source": 3,
+        "target": 4,
+        "distance_km": 4.9
+      },
+      {
+        "source": 12,
+        "target": 5,
+        "distance_km": 7.1
+      }
+    ]
+  }
+}
