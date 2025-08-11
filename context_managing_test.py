@@ -1,17 +1,11 @@
-import random
-from typing import Annotated, TypedDict, List, Tuple, Union
-import operator
+from typing import TypedDict
 from pydantic import BaseModel, Field
 import asyncio
-import json
-from pathlib import Path
-import random
 
 from dotenv import load_dotenv
 from langchain_openai import ChatOpenAI
 from langgraph.graph import StateGraph, START, END
 from langchain_core.prompts import ChatPromptTemplate
-from langchain_core.messages import AIMessage, HumanMessage, SystemMessage
 
 # 환경 변수 로드
 load_dotenv()
@@ -19,15 +13,18 @@ load_dotenv()
 # llm 모델 생성
 llm = ChatOpenAI(model="gpt-4.1-2025-04-14", temperature=0, streaming=False)
 
+# 그래프 상태
 class GraphState(TypedDict):
-    graph: str
-    arrive: bool
-    target_location: str
+    graph: str              # 그래프 json 문자열
+    arrive: bool            # 도착 여부
+    target_location: str    # 목표 지역
 
+# 이동할 때마다 만들어내는 결과 모델
 class Move(BaseModel):
     graph: str = Field(description="그래프를 표현하는 json형식의 텍스트")
     arrive: bool = Field(description="목표 위치에 도달했는지에 대한 정보")
 
+# 그래프 경로 탐색 전문가 프롬프트
 graph_prompt = ChatPromptTemplate.from_template("""
 당신은 그래프의 경로를 찾아주는 경로 탐색의 전문가입니다.
 당신에게는 노드와 엣지에 대한 정보와 현재 위치를 가지는 json문자열이 제공됩니다.
@@ -41,22 +38,29 @@ graph_prompt = ChatPromptTemplate.from_template("""
 ```
 """)
 
+# 그래프 생성자
 graph_builder = StateGraph(GraphState)
 
+# 이동 노드 추가
 graph_builder.add_node("이동", graph_prompt|llm.with_structured_output(Move))
 
+# 시작하면 이동
 graph_builder.add_edge(START, "이동")
+# 도착하지 않았다면 다시 이동, 도착했다면 종료
 graph_builder.add_conditional_edges("이동", lambda state: "이동" if not state["arrive"] else END, ["이동", END])
 
+# 그래프 생성
 graph = graph_builder.compile()
 
-# try:
-#     png_bytes = graph.get_graph(xray=True).draw_mermaid_png()
-#     with open("test.png", "wb") as f:
-#         f.write(png_bytes)
-# except Exception:
-#     pass
+# 그래프 구조 이미지로 저장
+try:
+    png_bytes = graph.get_graph(xray=True).draw_mermaid_png()
+    with open("test.png", "wb") as f:
+        f.write(png_bytes)
+except Exception:
+    pass
 
+# 시뮬레이션 실행 함수
 async def main():
     config = {"recursion_limit": 20}
     inputs = {"graph": """{
