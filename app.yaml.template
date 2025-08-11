@@ -1,0 +1,6 @@
+runtime: python311
+#service: api
+entrypoint: uvicorn deploy_test:app --host 0.0.0.0 --port $PORT
+
+env_variables:
+  UISEONG_GOOGLE_CLIENT_ID: "구글키"
