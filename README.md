@@ -1,6 +1,6 @@
 # ⚔️ LLM 텍스트 어드벤처 웹게임 
   
-**Us:Code 의성 청년 아카데미 메인 프로젝트**  
+**Us:Code 의성 청년 아카데미 메인 프로젝트 백엔드**  
 > 🪴 서브 프로젝트 URL: **https://github.com/SeungYeon04/A_3DFoodGame**  
   
 의성 Us:Code 청년 개발 아카데미  
