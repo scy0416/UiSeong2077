@@ -3,7 +3,7 @@
 **Us:Code 의성 청년 아카데미 메인 프로젝트 백엔드**  
 > 🪴 서브 프로젝트 URL: **https://github.com/SeungYeon04/A_3DFoodGame**
 
-> ⚔️ 프론트엔드 URL: **https://github.com/SeungYeon04/A_UiSeong2077/**  
+> ⚔️ 프론트엔드 URL: **https://github.com/SeungYeon04/A_UiSeong2077**  
   
 의성 Us:Code 청년 개발 아카데미  
 **의성 2077**팀으로 고운사를 바탕으로  
