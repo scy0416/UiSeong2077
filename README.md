@@ -13,6 +13,8 @@ LLM 텍스트 어드벤처 웹 게임입니다.
 LLM 텍스트 어드벤처를  
 웹 게임으로 만들었습니다.  
   
+> ⚔️ 서브 프로젝트 URL: **https://github.com/SeungYeon04/A_3DFoodGame**  
+  
 ## 🔗 프로젝트 링크
 
 - url **(추후 추가 예정)**
