@@ -1,6 +1,7 @@
 # ⚔️ LLM 텍스트 어드벤처 웹게임 
   
-**Us:Code 의성 청년 아카데미 메인 프로젝트**
+**Us:Code 의성 청년 아카데미 메인 프로젝트** 
+서브 프로젝트 URL:  
   
 의성 Us:Code 청년 개발 아카데미  
 **의성 2077**팀으로 고운사를 바탕으로  
@@ -62,8 +63,7 @@ LLM 텍스트 어드벤처를
 
 - 1차 공개문서 
 
-- 1차 PPT
-
+- [1차 PPT](https://www.canva.com/design/DAGv1bjKoEE/1cvOaeUHFqiuHmhc0SfJ_g/view?utm_content=DAGv1bjKoEE&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h560ef79879)  
   
 ## 🖼️ 플레이 화면 
 
