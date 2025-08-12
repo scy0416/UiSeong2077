@@ -38,7 +38,7 @@ LLM 텍스트 어드벤처를
 > 케이팝 데몬 헌터즈를 통해서 한류에 관심을 가지게 된 외국인  
 >  
 > #### 인트로 
-> [유튜브 / 인트로 영상](https://youtu.be/rBwIXjbALMc?si=R3U35fouqxo5sKxh)  
+> [유튜브 / 인트로 영상](https://youtu.be/F6VVrFvDHO8?si=qjOL8rTs-w2qLzpx)  
 > 
 
   
