@@ -1,41 +1,28 @@
-from typing import TypedDict
-from pydantic import BaseModel, Field
 import os
 
-from dotenv import load_dotenv
-from langchain_openai import ChatOpenAI
-from langgraph.graph import StateGraph, START, END
-from langchain_core.prompts import ChatPromptTemplate
-
-from fastapi import FastAPI, HTTPException, Header, Depends
+from fastapi import FastAPI, HTTPException, Depends, Header
 from fastapi.responses import RedirectResponse, Response
+from pydantic import BaseModel
 from google.oauth2 import id_token
 from google.auth.transport import requests
+from dotenv import load_dotenv
 from fastapi.middleware.cors import CORSMiddleware
 
-# 환경 변수 로드
 load_dotenv()
 
-# llm 모델 생성
-llm = ChatOpenAI(model="gpt-4.1-2025-04-14", temperature=.4, streaming=False)
-
-# FastAPI 앱 생성
 app = FastAPI()
 
-# fastapi의 CORS 설정
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=["*"],  # 프론트 도메인으로 교체
     allow_credentials=True,
     allow_methods=["*"],
-    allow_headers=["*"]
+    allow_headers=["*"],
 )
 
-# 필요한 변수들 설정
 GOOGLE_CLIENT_ID = os.getenv("UISEONG_GOOGLE_CLIENT_ID")
 GOOGLE_ISSUERS = {"accounts.google.com", "https://accounts.google.com"}
 
-# credential을 받아서 검증하고 사용자 정보를 반환하는 메소드
 def verify_google_id_token(credential: str) -> dict:
     try:
         idinfo = id_token.verify_oauth2_token(credential, requests.Request(), GOOGLE_CLIENT_ID)
@@ -47,33 +34,26 @@ def verify_google_id_token(credential: str) -> dict:
 
     return idinfo
 
-# 헤더로부터 로그인 사용자인지 확인하여 사용자 정보까지 반환하는 메소드
 def get_current_user(authorization: str | None = Header(default=None)):
     if not authorization or not authorization.startswith("Bearer "):
         raise HTTPException(status_code=401, detail="Missing or invalid Authorization header")
     token = authorization.split(" ", 1)[0]
     return verify_google_id_token(token)
 
-# 특정 사용자의 게임을 초기화하는 메소드
-def init_game(user_id, tutorial):
-    
-    pass
-
-# 새로운 게임을 시작하는 엔드포인트
 @app.get("/newgame")
-def newgame(tutorial: bool, user: dict = Depends(get_current_user)):
-    # 사용자의 id와 튜토리얼 정보를 전달해서 초기화
-    init_game(user['sub'], tutorial)
+#def newgame(tutorial: bool, user: dict = Depends(get_current_user)):
+def newgame(tutorial: bool):
+    #return Response(200)
     return RedirectResponse("http://localhost:3000/game")
 
-# 기존의 게임을 불러오는 엔드포인트
 @app.get("/loadgame")
-def loadgame(user: dict = Depends(get_current_user)):
+#def loadgame(user: dict = Depends(get_current_user)):
+def loadgame():
     return RedirectResponse("http://localhost:3000/game")
 
-# 게임의 정보를 불러오는 엔드포인트
 @app.get("/loadinfo")
-def loadinfo(user: dict = Depends(get_current_user)):
+#def loadinfo(user: dict = Depends(get_current_user)):
+def loadinfo():
     return {
         "health": 5,
         "sanity": 5,
@@ -87,10 +67,12 @@ def loadinfo(user: dict = Depends(get_current_user)):
             {"type": "narration", "text": "현재 상황이 이러이러하다."},
             {"type": "dialogue", "speaker": "달걀귀신", "text": "안녕"},
             {"type": "choice", "text": "[선택지1] 아무튼 선택지"}
-        ]
+        ],
+        "username": "의성2077"
     }
 
-# 선택지를 선택하는 메소드
 @app.post("/selectchoice")
-def selectchoice(user: dict = Depends(get_current_user)):
+#def selectchoice(user: dict = Depends(get_current_user)):
+def selectchoice():
     return Response(200)
+
